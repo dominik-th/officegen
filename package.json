@@ -1,13 +1,13 @@
 {
-	"name": "officegen",
+	"name": "uxal-officegen",
 	"description": "Office Open XML Generator using Node.js streams. Supporting Microsoft Office 2007 and later Word (docx), PowerPoint (pptx,ppsx) and Excel (xlsx). This module is for all frameworks and environments. No need for any commandline tool - this module is doing everything inside it.",
-	"version": "0.4.6",
+	"version": "1.0.0",
 	"author": {
-		"name": "Ziv Barber",
-		"url": "https://github.com/Ziv-Barber"
+		"name": "Ziv Barber & Dragos Lascu",
+		"url": "https://github.com/uxal"
 	},
 	"license": "MIT",
-	"url": "https://github.com/Ziv-Barber/officegen",
+	"url": "https://github.com/uxal/officegen",
 	"engines": {
 		"node": ">= 0.10.0"
 	},
@@ -34,7 +34,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/Ziv-Barber/officegen.git"
+		"url": "https://github.com/uxal/officegen.git"
 	},
 	"bugs": {
 		"url": "https://github.com/Ziv-Barber/officegen/issues"

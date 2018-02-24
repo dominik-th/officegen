@@ -1,4 +1,78 @@
-# officegen [![npm version](https://badge.fury.io/js/officegen.svg)](https://badge.fury.io/js/officegen) [![Build Status](https://travis-ci.org/Ziv-Barber/officegen.png?branch=master)](https://travis-ci.org/Ziv-Barber/officegen) [![Dependencies Status](https://gemnasium.com/Ziv-Barber/officegen.png)](https://gemnasium.com/Ziv-Barber/officegen) [![Join the chat at https://gitter.im/officegen/Lobby](https://badges.gitter.im/officegen/Lobby.svg)](https://gitter.im/officegen/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) 
+# uxal-officegen [![npm version](https://badge.fury.io/js/officegen.svg)](https://badge.fury.io/js/officegen) [![Build Status](https://travis-ci.org/Ziv-Barber/officegen.png?branch=master)](https://travis-ci.org/Ziv-Barber/officegen) [![Dependencies Status](https://gemnasium.com/Ziv-Barber/officegen.png)](https://gemnasium.com/Ziv-Barber/officegen) [![Join the chat at https://gitter.im/officegen/Lobby](https://badges.gitter.im/officegen/Lobby.svg)](https://gitter.im/officegen/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) 
+
+---
+## UXAL description
+
+This is a officegen fork, I had to do it because I needed the following things to work:
+- Custom page margins
+- Custom page size
+- Show images in tables
+- Show images inline with some text
+
+### Custom page margins
+In the original code (v 0.4.6) the margins are hardcoded and options passed are not used
+
+### Custom page size
+The default page size is 8.5 x 11 inch (letter) and I needed an A4 page.
+If you add `pageSize: 'A4'` in configuration settings the page size will be changed. Currently it supports only the default letter and A4.
+
+`const docx = officegen({
+      type: 'docx',
+      pageSize: 'A4'
+});`
+
+### Show images in tables
+Here I was inspired by https://github.com/FaheemAlam/officegen but I've extended the functionality and made it work for me.
+
+### Show images inline with some text
+
+See the example below with one image in a column while in th eother column we have a small image followed by some text
+
+```js
+ const tableData = [
+      [
+        { // first column an image
+          val: [
+            {
+              type: "image",
+              path: path.resolve(__dirname, '../image.png'),
+              opts: {
+                cx: 100,
+                cy: 77
+              }
+            }
+          ],
+          opts: {
+            cellColWidth: 2000,
+          }
+        },
+        {
+          val: [
+            { // second column a small image followed by some text
+              type: "image",
+              path: path.resolve(__dirname, '../bullet.png'),
+              text: 'This is the text displayed after a bullet image',
+              opts: {
+                cx: 8,
+                cy: 8,
+                sz: 24,
+                color: '346ead',
+                fontFamily: "Avenir Book",
+                align: 'left'
+              }
+            },
+          ],
+          opts: {
+            cellColWidth: 8000,
+          }
+        }
+      ]
+    ]
+```
+
+End of Uxal description, below is the original text from https://github.com/Ziv-Barber/officegen
+
+---
 
 This module can generate Office Open XML files for Microsoft Office 2007 and later.
 This module is not depend on any framework and you don't need to install Microsoft Office, so you can use it for any kind of javascript application. Also the output is a stream and not a file, not dependent on any output tool.

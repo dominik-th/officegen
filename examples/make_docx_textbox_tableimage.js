@@ -108,7 +108,8 @@ var tableData = [
 docx.createTable(tableData);
 
 pObj.startTextbox(450, 200, 300, 200, {
-  lineHeight: 480
+  lineHeight: 480,
+  transparent: true
 });
 pObj.addText('This is a textbox', {bold: true, font_face: 'Arial', font_size: 10});
 pObj.addLineBreak();
